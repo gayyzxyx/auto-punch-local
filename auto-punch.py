@@ -3,7 +3,7 @@ import os, time, webbrowser, urllib, json, threading
 from string import Template
 
 template = '''<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title></title></head><body onload="Button1.click()">
-<form name="form1" method="post" action="http://erp1.360buy.com/newhrm/kaoqing/frdakaji.aspx" id="form1">[<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<form name="form1" method="post" action="xxx" id="form1">[<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
  <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE1NTIwMTc0NDQPZBYCAgMPZBYEAgEPD2QWAh4Jb25rZXlkb3duBVtpZihldmVudC5rZXlDb2RlPT05IHx8IGV2ZW50LmtleUNvZGU9PTEzKXsgZG9jdW1lbnQuYWxsLnR4dF9QYXNzd29yZC5mb2N1cygpO3JldHVybiBmYWxzZTt9ZAIPDxYCHgRUZXh0ZWRkBOZ+U/f9usviT+OsIRO72gAAAAA=" />
  <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" /> <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
  <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBALLlZz2CgL3xJvhBAKM54rGBgLS9cL8AgdQXnNC6opMnjFsxIOPUFUAAAAA" />]<input name="txt_UserName" type="text" value="$u_name" id="txt_UserName"/>
