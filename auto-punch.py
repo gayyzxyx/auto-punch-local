@@ -39,19 +39,25 @@ def sort_task(tasks):
 if __name__ == "__main__":
     tasks = []
     interval = 60
+    task = ''
     while True:
         time.sleep(interval)
-        task = urllib.urlopen("http://punch360.sinaapp.com/task").read()
-        if len(task) > 0 and task.index("username") > 0:
-            try:
-                parse_task = json.loads(task)
-            except ValueError:
-                print "taskerror:" + task
-            else:
-                tasks.append(parse_task)
-                tasks = sort_task(tasks)
-                print parse_task["username"], parse_task["password"], time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(float(parse_task["trigger"])))
-        if len(tasks) > 0 and time.time() > float(tasks[0]["trigger"]):
-            user = User(tasks[0]["username"], tasks[0]["password"], float(tasks[0]["trigger"]))
-            user.action()
-            tasks.remove(tasks[0])
+        try:
+            task = urllib.urlopen("http://punch360.sinaapp.com/task").read()
+            if len(task) > 0 and task.index("username") > 0:
+                try:
+                    parse_task = json.loads(task)
+                except ValueError:
+                    print "taskerror:" + task
+                else:
+                    tasks.append(parse_task)
+                    tasks = sort_task(tasks)
+                    print parse_task["username"], parse_task["password"], time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(float(parse_task["trigger"])))
+        except:
+            print "connect failed, trying again...."
+            print task
+        else:
+            if len(tasks) > 0 and time.time() > float(tasks[0]["trigger"]):
+                user = User(tasks[0]["username"], tasks[0]["password"], float(tasks[0]["trigger"]))
+                user.action()
+                tasks.remove(tasks[0])
